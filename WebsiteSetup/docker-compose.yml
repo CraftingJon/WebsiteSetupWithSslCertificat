@@ -2,12 +2,12 @@ version: '3.8'
 
 services:
   web:
-    build: ./website
+    build: ./Website
     container_name: web_server
     ports:
       - "80:80"
     volumes:
-      - ./website:/var/www/html
+      - ./Website:/var/www/html
     networks:
       - webnet
     depends_on:
@@ -24,7 +24,7 @@ services:
       MYSQL_PASSWORD: adminpassword
     volumes:
       - ./db_data:/var/lib/mysql
-      - ./website/init_db.sql:/docker-entrypoint-initdb.d/init_db.sql
+      - ./Website/init_db.sql:/docker-entrypoint-initdb.d/init_db.sql
     networks:
       - webnet
 
